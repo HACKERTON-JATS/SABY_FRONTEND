@@ -1,9 +1,10 @@
 import React from "react";
+import Enter from "./Enter/Enter";
 
-const App = () => {
+const Last = () => {
     return (
-        <div></div>
+        <Enter />
     );
 }
 
-export default App;
+export default Last;
