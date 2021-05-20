@@ -1,9 +1,14 @@
 import React from "react";
+import Enter from "./Enter/Enter";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const App = () => {
+const Last = () => {
     return (
-        <div></div>
+        <Router>
+            <Route path="/first" component={Enter}></Route>
+
+        </Router>
     );
 }
 
-export default App;
+export default Last;
