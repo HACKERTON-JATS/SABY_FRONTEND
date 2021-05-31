@@ -24,6 +24,18 @@ export const NavBar = styled.div`
     display: flex;
     justify-content: space-between;
     margin-right: 20px;
+
+    & a{
+    text-align: center;
+    vertical-align: center;
+    padding: 11px 30px 11px 30px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: white;
+    background: #59fcff;
+    cursor: pointer;
+    margin-top: -11px;
+    }
 `
 
 export const Chat = styled.span`
@@ -47,14 +59,3 @@ export const Information = styled.span`
     cursor: pointer;
 `
 
-export const Login = styled.span`
-    text-align: center;
-    vertical-align: center;
-    padding: 11px 30px 11px 30px;
-    font-weight: bold;
-    border-radius: 50px;
-    color: white;
-    background: #59fcff;
-    cursor: pointer;
-    margin-top: -11px;
-`

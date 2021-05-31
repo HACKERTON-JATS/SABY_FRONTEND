@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 const Last = () => {
     return (
         <Router>
-            <Route path="/first" component={Enter}></Route>
-            <Route path="/second" component={Main}></Route>
+            <Route exact path="/" component={Enter}></Route>
+            <Route exact path="/Main" component={Main}></Route>
         </Router>
     );
 }
 
-export default Last;
+export default Last; 
