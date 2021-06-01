@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import Enter from "./Enter/Enter";
 import Main from "./Main/Main";
 import Login from "./Login/Login";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const Last = () => {
     return (
@@ -14,4 +14,4 @@ const Last = () => {
     );
 }
 
-export default Last; 
+export default Last;
