@@ -12,7 +12,7 @@ export const BackWrapper = styled.div`
 export const Title = styled.h1`
     text-align: center;
     font-size: 7rem;
-    color: #7EDBDD;
+    color: #59fcff;
     font-family: "AppleSd";
 `
 

@@ -12,15 +12,21 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: "AppleSd";
+  src: url('./fonts/AppleSDGothicNeoM.ttf');
+}
+
 h1{
   margin: 0;
 }
 
 p{
   margin: 0;
+  font-family: "AppleSd";
 }
 
-@font-face {
+span{
   font-family: "AppleSd";
-  src: url('./fonts/AppleSDGothicNeoM.ttf');
 }
+
