@@ -35,27 +35,40 @@ export const NavBar = styled.div`
     background: #59fcff;
     cursor: pointer;
     margin-top: -11px;
+    text-decoration: none;
     }
 `
 
 export const Chat = styled.span`
     cursor: pointer;
     font-weight: bold;
+    &:hover{
+       color: #9a9a9a; 
+    }
 `
 
 export const Reservation = styled.span`
     font-weight: bold;
     cursor: pointer;
+    &:hover{
+       color: #9a9a9a; 
+    }
 `
 
 export const Location = styled.span`
     font-weight: bold;
     cursor: pointer;
+    &:hover{
+       color: #9a9a9a; 
+    }
 `
 
 export const Information = styled.span`
     font-weight: bold;
     margin-right: 10px;
     cursor: pointer;
+    &:hover{
+       color: #9a9a9a; 
+    }
 `
 
