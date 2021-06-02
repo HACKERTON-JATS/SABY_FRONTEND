@@ -4,7 +4,6 @@ import Header from "../Main/Header/Header";
 
 const AdminLocation = () => {
     return (
-
         <S.Wrapper>
             <Header />
         </S.Wrapper>
