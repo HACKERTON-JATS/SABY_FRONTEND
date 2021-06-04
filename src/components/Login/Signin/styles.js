@@ -68,17 +68,17 @@ export const InpDisplay = styled.div`
     flex-direction: column;
 `
 
-export const Name = styled.div`
+export const Email = styled.div`
     width: 100%;
     margin-left: 30%;
 `
 
-export const UserName = styled.p`
+export const UserEmail = styled.p`
     color: #5f5f5f;
     font-size: 0.9rem;
 `
 
-export const NameInp = styled.input`
+export const EmailInp = styled.input`
     border: none;
     width: 70%;
     height: 30px;
@@ -101,6 +101,7 @@ export const UserPassword = styled.p`
 
 export const PasswordInp = styled.input`
     border: none;
+    outline: none;
     width: 70%;
     border-bottom: 1px solid #5f5f5f;
     margin-top: 5px;
@@ -123,13 +124,16 @@ export const GoSignUp = styled.p`
 
 `
 
-export const SignInBtn = styled.button`
+export const SignInBtn = styled.div`
     margin-top: 30px;
-    border-radius: 5px;
-    border: none;
-    background: #5bdedf;
-    color: #fff;
-    font-size: 1.05rem;
-    width: 75%;
-    height: 35px;
-`
+    & a{
+        text-decoration : none;
+        border-radius: 5px;
+        border: none;
+        background: #5bdedf;
+        color: #fff;
+        font-size: 1.05rem;
+        padding: 10px 120px 10px 120px;
+        cursor: pointer;
+    }
+`   
