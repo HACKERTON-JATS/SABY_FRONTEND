@@ -29,6 +29,7 @@ export const MonthInp = styled.input`
     height: 180px;
     width: 180px;
     outline: none;
+    background: #F5F5F5;
     font-size: 10rem;
 `
 
@@ -60,6 +61,8 @@ export const DateInp = styled.input`
     height: 180px;
     width: 180px;
     outline: none;
+    background: #F5F5F5;
+
     font-size: 10rem;
 `
 
@@ -118,6 +121,7 @@ export const HourWrapper = styled.div`
     border-radius: 10px;
     justify-self: center;
     font-size: 1.5rem;
+    background: #FFF;
     &:nth-of-type(4n){
         border: 1px solid #FF6060;
         color: #707070;
