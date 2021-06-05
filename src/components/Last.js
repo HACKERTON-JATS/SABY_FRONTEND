@@ -4,6 +4,9 @@ import Main from "./Main/Main";
 import Signin from "./Login/Signin/Signin";
 import Signup from "./Login/Signup/Signup";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Date from "./Reservation/Content/Date";
+import Time from "./Reservation/Content/Time";
+import WriteInfo from "./Reservation/WriteInfo/WriteInfo";
 
 const Last = () => {
     return (
@@ -12,6 +15,9 @@ const Last = () => {
             <Route exact path="/Main" component={Main}></Route>
             <Route exact path="/Signin" component={Signin}></Route>
             <Route exact path="/Signup" component={Signup}></Route>
+            <Route exact path="/Reservation-date" component={Date}></Route>
+            <Route exact path="/Reservation-time" component={Time}></Route>
+            <Route exact path="/Reservation-writeInfo" component={WriteInfo}></Route>
         </Router>
     );
 }

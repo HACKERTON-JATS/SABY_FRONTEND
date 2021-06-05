@@ -136,4 +136,5 @@ export const SignInBtn = styled.div`
         padding: 10px 120px 10px 120px;
         cursor: pointer;
     }
-`   
+`
+
