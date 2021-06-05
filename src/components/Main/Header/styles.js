@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
+export const Empty = styled.div`
+    width: 100%auto;
+    height: 100px;
+`
+
 export const Wrapper = styled.header`
     width: 100%;
     display: flex;
+    position: fixed;
+    margin-bottom: 40px;
     justify-content: space-between;
     align-items: center;
     background: #fff;
+    box-shadow: 0px 1px 9px #949494;
 `
 
 export const Logo = styled.div`
@@ -24,8 +32,23 @@ export const NavBar = styled.div`
     display: flex;
     justify-content: space-between;
     margin-right: 20px;
-
     & a{
+        text-align: center;
+        vertical-align: center;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+        color:#000;
+    }
+    & a:hover{
+        color: #505050; 
+    }
+    & a:active{
+        color: #222222;
+    }
+
+    & a:nth-of-type(5){
     text-align: center;
     vertical-align: center;
     padding: 11px 30px 11px 30px;
@@ -38,37 +61,3 @@ export const NavBar = styled.div`
     text-decoration: none;
     }
 `
-
-export const Chat = styled.span`
-    cursor: pointer;
-    font-weight: bold;
-    &:hover{
-       color: #9a9a9a; 
-    }
-`
-
-export const Reservation = styled.span`
-    font-weight: bold;
-    cursor: pointer;
-    &:hover{
-       color: #9a9a9a; 
-    }
-`
-
-export const Location = styled.span`
-    font-weight: bold;
-    cursor: pointer;
-    &:hover{
-       color: #9a9a9a; 
-    }
-`
-
-export const Information = styled.span`
-    font-weight: bold;
-    margin-right: 10px;
-    cursor: pointer;
-    &:hover{
-       color: #9a9a9a; 
-    }
-`
-
