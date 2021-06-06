@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.header`
     width: 100%;
+    height: 15vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +35,6 @@ export const NavBar = styled.div`
     color: white;
     background: #59fcff;
     cursor: pointer;
-    margin-top: -11px;
     text-decoration: none;
     }
 `
