@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 const Signin = () => {
+
+    const [data, setData] = useState({
+        id: "",
+        password: ""
+    });
+
+
+
     return (
         <S.Wrapper>
             <S.Modal>

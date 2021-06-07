@@ -80,7 +80,7 @@ export const UserName = styled.p`
 
 export const NameInp = styled.input`
     border: none;
-    width: 70%;
+    width: 60%;
     height: 30px;
     border-bottom: 1px solid #5f5f5f;
     margin-top: 5px;
@@ -94,10 +94,31 @@ export const Password = styled.div`
     margin-left: 30%;
 `
 
+export const Id = styled.div`
+    margin-top: 20px;
+    width: 100%;
+    margin-left: 30%;
+`
+
+export const UserId = styled.p`
+    color: #5f5f5f;
+    font-size: 0.9rem;
+`
+
 export const UserPassword = styled.p`
     color: #5f5f5f;
     font-size: 0.9rem;
 `
+
+export const IdInp = styled.input`
+    border: none;
+    width: 60%;
+    border-bottom: 1px solid #5f5f5f;
+    margin-top: 5px;
+    outline: none;
+    height: 30px;
+`
+
 
 export const PasswordInp = styled.input`
     border: none;
@@ -119,9 +140,6 @@ export const GoSignUp = styled.p`
     & a:hover{
         color: #7cf8ff;
     }
-
-    
-
 `
 
 
@@ -152,10 +170,29 @@ export const UserEmail = styled.p`
 
 export const EmailInp = styled.input`
     border: none;
-    width: 70%;
+    width: 60%;
     height: 30px;
     border-bottom: 1px solid #5f5f5f;
     margin-top: 5px;
     outline: none;
     color: #232323;
+`
+
+export const Check = styled.div`
+
+    display: flex;
+    gap: 10px;
+
+    & button{
+        cursor: pointer;
+        padding: 5px 10px 5px 10px;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        background: #7EDBDD;
+    }
+`
+
+export const Send = styled.div`
+
 `

@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     align-items: center;
 `
 
-export const Modal = styled.div`
+export const Modal = styled.form`
     width: 55%;
     height: 70%;
     background: #fff;
