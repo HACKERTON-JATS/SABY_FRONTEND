@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { request } from "../../../axios/axios";
 
 const Signup = () => {
 
-    const hostory = useHistory();
+    const history = useHistory();
+
+
 
     const [data, setData] = useState({
         name: "",
         email: "",
         password: "",
-        id: ""
+        id: "",
     });
+
+    const [check, setCheck] = useState({
+        name_ck: false,
+        email_ck: false,
+        id_ck: false
+    });
+
+    const { name_ck, email_ck, id_ck } = check;
 
 
     const { name, email, password, id } = data;
@@ -59,52 +69,69 @@ const Signup = () => {
         return true;
     }
 
+
     const emailOverlap = async (e) => {
         try {
-            await request("get", "/members/email", {
+            await request("get", `/members/email?email=${email}`, {
                 "Content-Type": "application/json"
-            }, {
-                "email": email
             })
             alert("사용가능한 이메일 입니다!");
+            setCheck({
+                ...check,
+                email_ck: true
+            });
         }
-        catch {
-            alert("fail");
+        catch (e) {
+            console.log(e);
+            alert("사용중인 이메일 입니다!");
         }
     }
 
-    const nameOverlap = (e) => {
+    const nameOverlap = async () => {
         console.log(name)
         try {
-            request("get", "/members/nickname", {
+            await request("get", `/members/nickname?nickname=${name}`, {
                 "Content-Type": "application/json",
 
-            }, {
-                "nickname": name
             })
             alert("사용가능한 닉네임입니다!");
+            setCheck({
+                ...check,
+                name_ck: true
+            });
         }
-        catch {
-            alert("닉네임이 중복되었습니다");
+        catch (e) {
+            console.log(e);
+            alert("사용중인 닉네임 입니다!");
         }
     }
 
-    const idOverlap = (e) => {
+    const idOverlap = async () => {
         console.log(id);
         try {
-            request("get", "/members/id?id=id", {
+            await request("get", `/members/id?user_id=${id}`, {
                 "Content-Type": "application/json"
-            }, {
-                "user_id": id
             })
             alert("사용가능한 아이디 입니다!");
-        } catch {
-            console.log("id is overlap")
+            setCheck({
+                ...check,
+                id_ck: true
+            })
+        } catch (e) {
+            console.log(e);
+            alert("사용중인 아이디 입니다")
         }
     }
 
 
     const SignupBtn = async (e) => {
+        console.log(name_ck)
+
+        if (!(toString(name_ck) || toString(id_ck) || toString(email_ck))) {
+            alert("중복체크를 완료해 주세요!");
+            return;
+        }
+
         try {
             await request("post", "/signup", {
                 "Content-type": "application/json",
@@ -115,9 +142,12 @@ const Signup = () => {
                 "nickname": name
             })
             alert("회원가입에 성공하였습니다!");
+            // window.localStorage.getItem("access-token");
+            history.push("/signin");
         }
-        catch {
+        catch (e) {
             alert("fail to signup");
+            console.log(e)
         }
     }
 
@@ -133,24 +163,6 @@ const Signup = () => {
                 </S.SignInWrp>
                 <S.InpWrapper>
                     <S.InpDisplay>
-                        <S.Name>
-                            <S.UserName>username</S.UserName>
-                            <S.Check>
-                                <S.NameInp onChange={nameChange} value={name} />
-                                <button onClick={nameOverlap}>중복 확인</button>
-                            </S.Check>
-                        </S.Name>
-                        <S.Email>
-                            <S.UserEmail>email</S.UserEmail>
-                            <S.Check>
-                                <S.EmailInp onChange={emailChange} value={email} />
-                                <button onClick={emailOverlap}>중복 확인</button>
-                            </S.Check>
-                        </S.Email>
-                        <S.Password>
-                            <S.UserPassword>password</S.UserPassword>
-                            <S.PasswordInp onChange={pwChange} value={password} />
-                        </S.Password>
                         <S.Id>
                             <S.UserId>id</S.UserId>
                             <S.Check>
@@ -158,8 +170,33 @@ const Signup = () => {
                                 <button onClick={idOverlap}>중복 확인</button>
                             </S.Check>
                         </S.Id>
+                        <S.Email>
+                            <S.UserEmail>email</S.UserEmail>
+                            <S.Check>
+                                <S.EmailInp onChange={emailChange} value={email} />
+                                <button onClick={emailOverlap}>중복 확인</button>
+                            </S.Check>
+                        </S.Email>
+                        <S.Email>
+                            <S.UserEmail>이메일 인증 코드</S.UserEmail>
+                            <S.Check>
+                                <S.EmailInp></S.EmailInp>
+                                <S.SendCode>이메일 인증</S.SendCode>
+                            </S.Check>
+                        </S.Email>
+                        <S.Name>
+                            <S.UserName>username</S.UserName>
+                            <S.Check>
+                                <S.NameInp onChange={nameChange} value={name} />
+                                <button onClick={nameOverlap}>중복 확인</button>
+                            </S.Check>
+                        </S.Name>
+                        <S.Password>
+                            <S.UserPassword>password</S.UserPassword>
+                            <S.PasswordInp type="password" onChange={pwChange} value={password} />
+                        </S.Password>
                         <S.SignInBtn onClick={SignupBtn} >sign up</S.SignInBtn>
-                        <S.GoSignUp >if you have an account <NavLink exact to="/Signin">Click here !</NavLink></S.GoSignUp>
+                        <S.GoSignUp >if you have an account <Link exact to="/Signin">Click here !</Link></S.GoSignUp>
                     </S.InpDisplay>
                 </S.InpWrapper>
             </S.Modal>

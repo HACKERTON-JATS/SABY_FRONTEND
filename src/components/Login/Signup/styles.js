@@ -71,6 +71,7 @@ export const InpDisplay = styled.div`
 export const Name = styled.div`
     width: 100%;
     margin-left: 30%;
+    margin-top: 15px;
 `
 
 export const UserName = styled.p`
@@ -145,16 +146,14 @@ export const GoSignUp = styled.p`
 
 export const SignInBtn = styled.div`
     margin-top: 30px;
-    & a{
-        text-decoration : none;
-        border-radius: 5px;
-        border: none;
-        background: #5bdedf;
-        color: #fff;
-        font-size: 1.05rem;
-        padding: 10px 120px 10px 120px;
-        cursor: pointer;
-    }
+    text-decoration : none;
+    border-radius: 5px;
+    border: none;
+    background: #5bdedf;
+    color: #fff;
+    font-size: 1.05rem;
+    padding: 10px 120px 10px 120px;
+    cursor: pointer;
 `
 
 export const Email = styled.div`
@@ -193,6 +192,14 @@ export const Check = styled.div`
     }
 `
 
-export const Send = styled.div`
-
+export const SendCode = styled.div`
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    padding: 0px 5px 0px 5px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background: #7EDBDD;
 `
