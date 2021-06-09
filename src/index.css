@@ -21,7 +21,9 @@ code {
 h1{
   margin: 0;
 }
-
+a{
+  font-family: "AppleSd";
+}
 p{
   margin: 0;
   font-family: "AppleSd";
