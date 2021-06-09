@@ -6,7 +6,6 @@ import Header from "../../Main/Header/Header";
 const WriteInfo = () => {
     return (
         <>
-            <Header></Header>
             <S.Wrapper></S.Wrapper>
         </>
     )

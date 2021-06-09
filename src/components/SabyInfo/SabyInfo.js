@@ -6,7 +6,7 @@ import ChildSave from "./Contents/ChildSave";
 import Support from "./Contents/Support";
 import WhatBabyBox from "./Contents/WhatBabyBox";
 
-import { NavLink, Route, useHistory } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 
 const SabyInfo = ({ match }) => {
     const path = match.path;

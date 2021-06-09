@@ -89,6 +89,9 @@ const Signup = () => {
 
     const nameOverlap = async () => {
         console.log(name)
+
+        ckName();
+
         try {
             await request("get", `/members/nickname?nickname=${name}`, {
                 "Content-Type": "application/json",
@@ -120,6 +123,19 @@ const Signup = () => {
         } catch (e) {
             console.log(e);
             alert("사용중인 아이디 입니다")
+        }
+    }
+
+    const emailCk = async (e) => {
+        try {
+            await request("post", "/sms-certification/sends", {
+                "Content-type": "application/json"
+            }, {
+                "email": email
+            })
+        }
+        catch {
+            console.log("err");
         }
     }
 
@@ -180,7 +196,7 @@ const Signup = () => {
                             <S.UserEmail>이메일 인증 코드</S.UserEmail>
                             <S.Check>
                                 <S.EmailInp></S.EmailInp>
-                                <S.SendCode>이메일 인증</S.SendCode>
+                                <S.SendCode onClick={emailCk}>이메일 인증</S.SendCode>
                             </S.Check>
                         </S.Email>
                         <S.Name>

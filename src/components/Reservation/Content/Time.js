@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
-import Header from "../../Main/Header/Header";
 import { NavLink } from "react-router-dom";
 import Triangle from "../../../assets/triangle.png";
 
-const Time = () => {
+const Time = ({ date }) => {
+
     return (
         <>
-            <Header></Header>
             <S.TimeWrapper>
                 <S.Date>6/1</S.Date>
                 <S.ExactTimeWrp>
@@ -22,7 +21,7 @@ const Time = () => {
                     </div>
                 </S.ExactTimeWrp>
                 <S.WriteBabyInfo>
-                    <NavLink to="/Reservation-writeInfo">
+                    <NavLink to="/Reservation/writeInfo">
                         예약하기
                         <img src={Triangle} alt="" />
                     </NavLink>
