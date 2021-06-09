@@ -33,12 +33,13 @@ const Signin = () => {
     const SigninBtn = async (e) => {
         console.log(id, password)
         try {
-            await request("post", "/login", {
+            const { data } = await request("post", "/login", {
                 "Content-type": "application/json",
             }, {
                 "user_id": id,
                 "password": password
             })
+            localStorage.setItem("token", data['access-token']);
             console.log("success");
             history.push("/Main");
         }

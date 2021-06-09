@@ -15,7 +15,7 @@ const Header = () => {
                         <Link exact to="/Reservation-date">예약하기</Link>
                         <Link exact to="/Location">위치보기</Link>
                         <Link exact to="/Information">정보보기</Link>
-                        <Link exact to="/Signin">로그인</Link>
+                        <Link exact to="/Signin">로그인 </Link>
                     </S.NavBar>
                 </S.Wrapper>
             </S.Empty>

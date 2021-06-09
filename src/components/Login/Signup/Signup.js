@@ -142,7 +142,6 @@ const Signup = () => {
                 "nickname": name
             })
             alert("회원가입에 성공하였습니다!");
-            // window.localStorage.getItem("access-token");
             history.push("/signin");
         }
         catch (e) {
