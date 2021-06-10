@@ -16,8 +16,6 @@ const SabyInfo = ({ match }) => {
             <S.Wrapper>
                 <S.Title>
                     베이비박스 지원 서비스
-                    <br />
-                    <i>/</i>
                 </S.Title>
                 <S.BtnWrapper>
                     <NavLink activeClassName="selected" exact to="/Information/babybox">베이비박스란?</NavLink>

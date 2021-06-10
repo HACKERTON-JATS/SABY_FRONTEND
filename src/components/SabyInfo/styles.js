@@ -8,11 +8,6 @@ export const Title = styled.p`
     text-align: center;
     font-size: 2.5rem;
     margin-top: 40px;
-
-    & i{
-        font-size:2rem;
-        color: #59fcff;
-    }
 `
 
 export const BtnWrapper = styled.div`
@@ -20,7 +15,7 @@ export const BtnWrapper = styled.div`
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin: 20px 0;
 
     & a{
         text-decoration: none;
