@@ -13,7 +13,7 @@ const Content = () => {
             await request("get", "/reservation_time", {
                 "Content-type": "application/json",
                 "Authorzation": `Bearer ${window.localStorage.getItem("token")}`
-            })
+            }, {}, "USER")
         }
         catch {
             alert("asd");
