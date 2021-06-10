@@ -9,6 +9,7 @@ import Time from "./Reservation/Content/Time";
 import SabyInfo from "./SabyInfo/SabyInfo";
 import Chat from "./Chat/Chat";
 import WriteInfo from "./Reservation/WriteInfo/WriteInfo";
+import AdminLogin from './AdminLogin/AdminLogin';
 
 const Last = () => {
     return (
@@ -22,6 +23,7 @@ const Last = () => {
             <Route exact path="/Reservation-time" component={Time}></Route>
             <Route exact path="/Reservation-writeInfo" component={WriteInfo}></Route>
             <Route path="/Information" component={SabyInfo}></Route>
+            <Route path="/admin-login" component={AdminLogin}></Route>
         </Router>
     );
 }
