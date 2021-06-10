@@ -3,7 +3,12 @@ import { NavLink } from "react-router-dom";
 import * as S from "./styles";
 import Header from "../../Main/Header/Header";
 
-const WriteInfo = ({ setData, data }) => {
+const WriteInfo = ({ data, setData }) => {
+
+    useEffect(() => {
+        console.log(data, typeof (data), data.toString())
+
+    }, [])
 
 
     const nameChange = (e) => {

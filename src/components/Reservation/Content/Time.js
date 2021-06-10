@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+import WriteIfno from "../WriteInfo/WriteInfo";
 import { request } from "../../../axios/axios";
 import Triangle from "../../../assets/triangle.png";
 
 const Time = ({ setPos, data, setData }) => {
-
-    const [hour, setHour] = useState("");
-
-
-
     useEffect(() => {
-        console.log(data, data.time)
+        console.log(data, data.time, typeof (data.time))
     }, [])
 
     const posChange = () => {
         setPos(2);
     }
 
-    const hourCk = (e) => {
+    const hourCk = (index) => {
         setData({
             ...data,
-            time: data.time.setHours('00', '00', '00' + (hour * 3600))
+            time: data.time.setHours('00', '00', '00' + (index * 3600))
         })
-        console.log(data.time)
+        console.log(data);
     }
 
 
@@ -35,7 +31,7 @@ const Time = ({ setPos, data, setData }) => {
                         {
                             [...Array(24)].map((i, index) => {
                                 return (
-                                    < S.HourWrapper onClick={(e) => { setHour(index); hourCk() }}> {index}시 ~{index + 1}시</S.HourWrapper>
+                                    < S.HourWrapper onClick={(e) => { hourCk(index); }}> {index}시 ~{index + 1}시</S.HourWrapper>
                                 )
                             })
                         }
