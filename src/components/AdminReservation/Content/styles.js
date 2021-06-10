@@ -39,7 +39,6 @@ export const Text = styled.span`
     font-size: 1.2rem;
 `
 
-export const Image = styled.img`
-    margin-left: 10px;
-    width: 24px;
+export const Img = styled.p`
+    
 `

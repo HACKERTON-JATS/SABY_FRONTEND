@@ -1,9 +1,7 @@
 import React from 'react';
 import Enter from "./Enter/Enter";
 import Main from "./Main/Main";
-import Login from "./Login/Login";
 import AdminLocation from "./AdminLocation/AdminLocation";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import AdminReservation from './AdminReservation/AdminReservation';
 import Signin from "./Login/Signin/Signin";
 import Signup from "./Login/Signup/Signup";
@@ -20,7 +18,6 @@ const Last = () => {
         <Router>
             <Route exact path="/" component={Enter}></Route>
             <Route exact path="/Main" component={Main}></Route>
-            <Route exact path="/Login" component={Login}></Route>
             <Route exact path="/AdminLocation" component={AdminLocation}></Route>
             <Route exact path="/AdminReservation" component={AdminReservation}></Route>
             <Route exact path="/Signin" component={Signin}></Route>
