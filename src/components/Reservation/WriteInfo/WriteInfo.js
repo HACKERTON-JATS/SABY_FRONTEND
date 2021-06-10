@@ -6,7 +6,7 @@ import Header from "../../Main/Header/Header";
 const WriteInfo = ({ data, setData }) => {
 
     useEffect(() => {
-        console.log(data, typeof (data), data.toString())
+        console.log(data, typeof (data.time))
 
     }, [])
 

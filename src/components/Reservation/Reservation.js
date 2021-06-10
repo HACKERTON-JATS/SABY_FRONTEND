@@ -14,7 +14,7 @@ const Reservation = () => {
         console.log(data)
     }, [pos])
     const [data, setData] = useState({
-        time: "",
+        time: {},
         birth_date: "",
         kid_name: "",
         vaccination: "",

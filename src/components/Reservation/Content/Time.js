@@ -6,7 +6,7 @@ import Triangle from "../../../assets/triangle.png";
 
 const Time = ({ setPos, data, setData }) => {
     useEffect(() => {
-        console.log(data, data.time, typeof (data.time))
+        console.log(typeof (data.time))
     }, [])
 
     const posChange = () => {
