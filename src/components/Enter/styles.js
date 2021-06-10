@@ -14,6 +14,7 @@ export const Title = styled.h1`
     font-size: 7rem;
     color: #59fcff;
     font-family: "AppleSd";
+    letter-spacing: 5px;
 `
 
 export const Slogan = styled.p`
