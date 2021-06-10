@@ -74,7 +74,7 @@ const Signup = () => {
         try {
             await request("get", `/members/email?email=${email}`, {
                 "Content-Type": "application/json"
-            })
+            }, {}, "USER")
             alert("사용가능한 이메일 입니다!");
             setCheck({
                 ...check,
@@ -92,8 +92,7 @@ const Signup = () => {
         try {
             await request("get", `/members/nickname?nickname=${name}`, {
                 "Content-Type": "application/json",
-
-            })
+            }, {}, "USER")
             alert("사용가능한 닉네임입니다!");
             setCheck({
                 ...check,
@@ -111,7 +110,7 @@ const Signup = () => {
         try {
             await request("get", `/members/id?user_id=${id}`, {
                 "Content-Type": "application/json"
-            })
+            }, {}, "USER")
             alert("사용가능한 아이디 입니다!");
             setCheck({
                 ...check,
@@ -140,7 +139,7 @@ const Signup = () => {
                 "email": email,
                 "password": password,
                 "nickname": name
-            })
+            }, {}, "USER")
             alert("회원가입에 성공하였습니다!");
             history.push("/signin");
         }
