@@ -7,6 +7,7 @@ export const TimeWrapper = styled.section`
 export const DateWrapper = styled.section`
     margin-top: 150px;
     width: 100%;
+    height: 70vh;
     display: flex;
     align-items: start;
     justify-content: center;
@@ -29,8 +30,8 @@ export const MonthInp = styled.input`
     height: 180px;
     width: 180px;
     outline: none;
-    background: #F5F5F5;
     font-size: 10rem;
+    background: rgb(245, 245, 245);
 `
 
 export const Underline = styled.div`
@@ -56,13 +57,12 @@ export const DateWrp = styled.div`
 
 export const DateInp = styled.input`
     text-indent: 80px;
+    background: rgb(245, 245, 245);
     border: none;
     border: none;    
     height: 180px;
     width: 180px;
     outline: none;
-    background: #F5F5F5;
-
     font-size: 10rem;
 `
 
@@ -80,6 +80,7 @@ export const Next = styled.div`
     justify-content: center;
     position: absolute;
     bottom: 40px;
+    cursor: pointer;
     right: 40px;
 
     & a{
@@ -115,13 +116,13 @@ export const HourWrapper = styled.div`
     height: 45px;
     margin: 15px;
     border: 1px solid #7EDBDD;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     justify-self: center;
     font-size: 1.5rem;
-    background: #FFF;
     &:nth-of-type(4n){
         border: 1px solid #FF6060;
         color: #707070;
@@ -137,8 +138,9 @@ export const WriteBabyInfo = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 0px;
-    right: 20px;
+    bottom: 40px;
+    right: 40px;
+    cursor: pointer;
 
     & a{
         text-decoration: none;

@@ -7,8 +7,6 @@ const Signup = () => {
 
     const history = useHistory();
 
-
-
     const [data, setData] = useState({
         name: "",
         email: "",

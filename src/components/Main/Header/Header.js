@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
+import { request } from "../../../axios/axios";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        console.log(token);
+    }, [])
     return (
         <>
             <S.Empty>
@@ -15,7 +22,7 @@ const Header = () => {
                         <Link exact to="/Reservation/date">예약하기</Link>
                         <Link exact to="/Location">위치보기</Link>
                         <Link exact to="/Information/babybox">정보보기</Link>
-                        <Link exact to="/Signin">로그인 </Link>
+                        <Link exact to="/Signin">로그인</Link>
                     </S.NavBar>
                 </S.Wrapper>
             </S.Empty>

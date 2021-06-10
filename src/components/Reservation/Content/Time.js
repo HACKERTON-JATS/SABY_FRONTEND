@@ -1,9 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import { NavLink } from "react-router-dom";
+import { request } from "../../../axios/axios";
 import Triangle from "../../../assets/triangle.png";
 
-const Time = ({ date }) => {
+const Time = ({ setPos, data, setData }) => {
+
+    const [hour, setHour] = useState("");
+
+
+
+    useEffect(() => {
+        console.log(data, data.time)
+    }, [])
+
+    const posChange = () => {
+        setPos(2);
+    }
+
+    const hourCk = (e) => {
+        setData({
+            ...data,
+            time: data.time.setHours('00', '00', '00' + (hour * 3600))
+        })
+        console.log(data.time)
+    }
+
 
     return (
         <>
@@ -14,17 +35,17 @@ const Time = ({ date }) => {
                         {
                             [...Array(24)].map((i, index) => {
                                 return (
-                                    <S.HourWrapper>{index}시 ~ {index + 1}시</S.HourWrapper>
+                                    < S.HourWrapper onClick={(e) => { setHour(index); hourCk() }}> {index}시 ~{index + 1}시</S.HourWrapper>
                                 )
                             })
                         }
                     </div>
                 </S.ExactTimeWrp>
                 <S.WriteBabyInfo>
-                    <NavLink to="/Reservation/writeInfo">
+                    <a onClick={posChange}>
                         예약하기
                         <img src={Triangle} alt="" />
-                    </NavLink>
+                    </a>
                 </S.WriteBabyInfo>
             </S.TimeWrapper>
         </>

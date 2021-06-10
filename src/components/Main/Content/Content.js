@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Location from "../../../assets/Location.png";
 import * as S from "./styles";
+import { request } from "../../../axios/axios";
 
 const Content = () => {
+
+
+
+    useEffect(async (e) => {
+
+        try {
+            await request("get", "/reservation_time", {
+                "Content-type": "application/json",
+                "Authorzation": `Bearer ${window.localStorage.getItem("token")}`
+            })
+        }
+        catch {
+            alert("asd");
+        }
+    }, [])
+
     return (
         <S.Wrapper>
             <S.Left>

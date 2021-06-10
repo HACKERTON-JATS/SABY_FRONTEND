@@ -4,7 +4,7 @@ import Main from "./Main/Main";
 import Signin from "./Login/Signin/Signin";
 import Signup from "./Login/Signup/Signup";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Date from "./Reservation/Content/Date";
+import Date from "./Reservation/Content/Month";
 import SabyInfo from "./SabyInfo/SabyInfo";
 import Chat from "./Chat/Chat";
 import Reservation from './Reservation/Reservation';

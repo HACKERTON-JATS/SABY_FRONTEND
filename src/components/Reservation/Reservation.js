@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import Header from "../Main/Header/Header";
 import Time from "./Content/Time";
-import Date from "./Content/Date";
+import Date from "./Content/Month";
 import WriteInfo from "./WriteInfo/WriteInfo";
-import { Route } from "react-router-dom";
 
-const Reservation = ({ match }) => {
-    const path = match.path
+const Reservation = () => {
+
+    const [pos, setPos] = useState(0);
+    const [data, setData] = useState({
+        time: "",
+        birth_date: "",
+        kid_name: "",
+        vaccination: "",
+        fetus_name: "",
+        request: "",
+        caution: "",
+    })
+
+    const { time, birth_date, kid_name, vaccination, fetus_name, request, caution } = data;
+
     return (
         <>
             <Header />
             <S.Wrapper>
-                <Route path={`${path}/date`} exact component={Date}></Route>
-                <Route path={`${path}/time`} exact component={Time}></Route>
-                <Route path={`${path}/writeInfo`} exact component={WriteInfo}></Route>
+                {pos === 0 ? <Date data={data} setData={setData} setPos={setPos} /> :
+                    pos === 1 ? <Time data={data} setData={setData} setPos={setPos} />
+                        : <WriteInfo data={data} setData={setData} />
+                }
+
+
+
             </S.Wrapper>
         </>
     )
