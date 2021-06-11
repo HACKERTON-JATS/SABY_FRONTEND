@@ -40,7 +40,8 @@ const Signin = () => {
                 "password": password
             }, "USER")
             console.log(data)
-            localStorage.setItem("token", data.token.access_token);
+            localStorage.setItem("token", data.value.access_token);
+            localStorage.setItem("name", data.value.nickname.nickname)
             console.log("success");
             history.push("/Main");
         }

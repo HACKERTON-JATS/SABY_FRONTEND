@@ -11,6 +11,7 @@ const WriteInfo = ({ data, setData }) => {
     useEffect(() => {
         console.log(data, typeof (data.time))
         console.log(data)
+        console.log(window.localStorage.getItem('token'))
     }, [data])
 
 

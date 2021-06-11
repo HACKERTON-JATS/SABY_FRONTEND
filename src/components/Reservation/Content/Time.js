@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import WriteIfno from "../WriteInfo/WriteInfo";
-import { request } from "../../../axios/axios";
+import { request, requestWithAccessToken } from "../../../axios/axios";
 import Triangle from "../../../assets/triangle.png";
 
 const Time = ({ setPos, data, setData }) => {
@@ -13,6 +13,20 @@ const Time = ({ setPos, data, setData }) => {
         setPos(2);
     }
 
+    useEffect(async (e) => {
+        try {
+            const data = await requestWithAccessToken("get", "/isReservation", {}, {}, "USER");
+            localStorage.setItem("time", data.time);
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i])
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    }, [])
     const hourCk = (index) => {
         const time = data.time;
         time.setHours(index)

@@ -6,6 +6,7 @@ import { request } from "../../../axios/axios";
 const Content = () => {
 
 
+    const name = localStorage.getItem("name");
 
     useEffect(async (e) => {
 
@@ -26,6 +27,7 @@ const Content = () => {
                 <S.Name>
                     <S.Alias>닉네임</S.Alias>
                     <S.NameInf>로그인해주세요</S.NameInf>
+                    <p>{name}</p>
                 </S.Name>
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>

@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 
-    const token = localStorage.getItem('nickname');
+    const token = localStorage.getItem('token');
+    const name = localStorage.getItem('name');
 
     useEffect(() => {
-        console.log(token);
+        console.log(name);
     }, [])
     return (
         <>
@@ -23,6 +24,7 @@ const Header = () => {
                         <Link exact to="/Location">위치보기</Link>
                         <Link exact to="/Information/babybox">정보보기</Link>
                         <Link exact to="/Signin">로그인</Link>
+                        <p>{name}</p>
                     </S.NavBar>
                 </S.Wrapper>
             </S.Empty>
