@@ -4,27 +4,47 @@ import O from "../../../assets/O.png";
 import { request, requestWithAccessToken } from "../../../axios/axios";
 import X from "../../../assets/X.png";
 
+
 const Content = () => {
 
-    const [pageNumber, setPageNumber] = useState(1);
+    const [pageNumber, setPageNumber] = useState(0);
     const [maxPage, setMaxPage] = useState(1);
     const [postData, setPostData] = useState([]);
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     requestWithAccessToken("get", `/admin/reservation?page=${pageNumber}`).then((e) => {
+    //         setPostData(postData.concat(e.data));
+    //         setMaxPage(e.totalPages);
+
+    //     }).catch((e) => {
+    //         console.log(e);
+    //     })
+    // }, [pageNumber]);
+
+
+
+
+    useEffect((e) => {
         console.log(window.localStorage.getItem("adminToken"));
 
-        requestWithAccessToken("get", `/admin/reservation?=${pageNumber}`, {}, {}, "ADMIN")
+        requestWithAccessToken("get", `/admin/reservation?page=${pageNumber}`, {}, {}, "ADMIN")
             .then((res) => {
                 const data = res.reservationList;
+                console.log(data);
                 setMaxPage(data.totalPages);
                 for (let i = 0; i < data.data.length; i++) {
                     setPostData((e) => [...e, data.data[i]]);
                     console.log(postData);
-
+                    console.log(data);
                 }
 
-            }).catch((err) => { console.log(err) })
+            }).catch((err) => {
+                console.log(err)
+            })
+
+
     }, [pageNumber]);
+
 
     const infiniteScroll = useCallback(() => {
         const scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
