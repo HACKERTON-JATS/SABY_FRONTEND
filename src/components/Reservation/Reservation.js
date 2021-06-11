@@ -14,16 +14,16 @@ const Reservation = () => {
         console.log(data)
     }, [pos])
     const [data, setData] = useState({
-        time: {},
+        time: "",
         birth_date: "",
         kid_name: "",
         vaccination: "",
         fetus_name: "",
         request: "",
         caution: "",
+
     })
 
-    const { time, birth_date, kid_name, vaccination, fetus_name, request, caution } = data;
 
     return (
         <>

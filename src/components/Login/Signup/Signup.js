@@ -129,7 +129,7 @@ const Signup = () => {
                 "Content-type": "application/json"
             }, {
                 "email": email
-            })
+            }, "USER")
         }
         catch {
             console.log("err");
@@ -153,7 +153,7 @@ const Signup = () => {
                 "email": email,
                 "password": password,
                 "nickname": name
-            }, {}, "USER")
+            }, "USER")
             alert("회원가입에 성공하였습니다!");
             history.push("/signin");
         }

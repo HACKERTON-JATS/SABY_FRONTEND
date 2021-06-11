@@ -34,7 +34,7 @@ export const request = (method, url, headers, data, target) => {
 };
 
 export const requestWithAccessToken = (method, url, headers, data, target) => {
-    const ACCESS_TOKEN = localStorage.getItem(TARGET_TOKEN_OBJ[target]);
+    const ACCESS_TOKEN = 'Bearer ' + localStorage.getItem(TARGET_TOKEN_OBJ[target]);
     const ACCESS_TOKEN_NAME = TARGET_AUTHORIZATION_OBJ[target];
     return axios({
         method,

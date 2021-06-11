@@ -14,9 +14,13 @@ const Time = ({ setPos, data, setData }) => {
     }
 
     const hourCk = (index) => {
+        const time = data.time;
+        time.setHours(index)
+        time.setMinutes(0);
+        time.setSeconds(0);
         setData({
             ...data,
-            time: data.time.setHours('00', '00', '00' + (index * 3600))
+            time: time
         })
         console.log(data);
     }
