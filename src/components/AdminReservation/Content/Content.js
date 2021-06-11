@@ -13,12 +13,14 @@ const Content = () => {
     useEffect(() => {
         console.log(window.localStorage.getItem("adminToken"));
 
-        requestWithAccessToken("get", `/admin/reservation?page=${pageNumber}`, {}, {}, "ADMIN")
+        requestWithAccessToken("get", `/admin/reservation?=${pageNumber}`, {}, {}, "ADMIN")
             .then((res) => {
                 const data = res.reservationList;
                 setMaxPage(data.totalPages);
-                for (let i = 0; i < data.reservationList.length; i++) {
-                    setPostData((e) => [...e, data.reservationList[i]]);
+                for (let i = 0; i < data.data.length; i++) {
+                    setPostData((e) => [...e, data.data[i]]);
+                    console.log(postData);
+
                 }
 
             }).catch((err) => { console.log(err) })
@@ -47,13 +49,15 @@ const Content = () => {
             <S.ReservationContainer>
                 {
                     postData.map((e, index) => {
-                        <S.TextBlock key={index}>
-                            <S.UserInfo>{e.userName}</S.UserInfo>
-                            <S.BabyInfo>
-                                <S.Text>아이정보</S.Text>
-                                <S.Img>{e.is_take}</S.Img>
-                            </S.BabyInfo>
-                        </S.TextBlock>
+                        return (
+                            <S.TextBlock key={index}>
+                                <S.UserInfo>{e.userName}</S.UserInfo>
+                                <S.BabyInfo>
+                                    <S.Text>아이정보</S.Text>
+                                    <S.Img>{e.is_take}</S.Img>
+                                </S.BabyInfo>
+                            </S.TextBlock>
+                        )
                     })
                 }
             </S.ReservationContainer>

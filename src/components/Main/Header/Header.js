@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('nickname');
 
     useEffect(() => {
         console.log(token);
