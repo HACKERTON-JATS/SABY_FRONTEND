@@ -11,7 +11,8 @@ const Content = () => {
     useEffect(async (e) => {
 
         try {
-            await requestWithAccessToken("get", "/reservation_time", {}, {}, "USER")
+            const data = await requestWithAccessToken("get", "/reservation_time", {}, {}, "USER");
+            console.log(data)
         }
         catch (e) {
             console.log(e)
@@ -23,13 +24,11 @@ const Content = () => {
             <S.Left>
                 <S.Name>
                     <S.Alias>닉네임</S.Alias>
-                    <S.NameInf>로그인해주세요</S.NameInf>
-                    <p>{name}</p>
+                    <S.NameInf>{name == undefined ? "로그인 해주세요" : name}</S.NameInf>
                 </S.Name>
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>
                     <S.ReservationInf>예약일정이 없습니다</S.ReservationInf>
-                    <p></p>
                 </S.Reservation>
             </S.Left>
             <S.Right>

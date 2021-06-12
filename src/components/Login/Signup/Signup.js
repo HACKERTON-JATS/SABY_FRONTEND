@@ -123,6 +123,8 @@ const Signup = () => {
         }
     }
 
+    const [code, setCode] = useState("");
+
     const emailCk = async (e) => {
         try {
             await request("post", "/sms-certification/sends", {
@@ -133,6 +135,18 @@ const Signup = () => {
         }
         catch {
             console.log("err");
+        }
+    }
+
+    const emailOk = async (e) => {
+        try {
+            setCode()
+            await request("get", `sms-certification/confirms?code=${code}`, {
+                "Content-type": "application/json",
+            }, {})
+        }
+        catch (e) {
+            console.log(e);
         }
     }
 
