@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Location from "../../../assets/Location.png";
 import * as S from "./styles";
-import { request } from "../../../axios/axios";
+import { request, requestWithAccessToken } from "../../../axios/axios";
 
 const Content = () => {
 
 
+    const name = localStorage.getItem("name");
 
     useEffect(async (e) => {
 
         try {
-            await request("get", "/reservation_time", {
-                "Content-type": "application/json",
-                "Authorzation": `Bearer ${window.localStorage.getItem("token")}`
-            }, {}, "USER")
+            const data = await requestWithAccessToken("get", "/reservation_time", {}, {}, "USER");
+            console.log(data)
         }
-        catch {
-            alert("asd");
+        catch (e) {
+            console.log(e)
         }
     }, [])
 
@@ -25,7 +24,7 @@ const Content = () => {
             <S.Left>
                 <S.Name>
                     <S.Alias>닉네임</S.Alias>
-                    <S.NameInf>로그인해주세요</S.NameInf>
+                    <S.NameInf>{name == undefined ? "로그인 해주세요" : name}</S.NameInf>
                 </S.Name>
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>

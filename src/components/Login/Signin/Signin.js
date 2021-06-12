@@ -41,6 +41,7 @@ const Signin = () => {
             }, "USER")
             console.log(data)
             localStorage.setItem("token", data.token.access_token);
+            localStorage.setItem("name", data.token.nickname.nickname)
             console.log("success");
             history.push("/Main");
         }

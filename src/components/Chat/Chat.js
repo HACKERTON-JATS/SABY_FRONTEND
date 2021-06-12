@@ -1,55 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { request, requestWithAccessToken } from '../../axios/axios';
 import Header from "../Main/Header/Header";
 import * as S from "./styles";
-import Send from "../../assets/Send.png";
 
 const Chat = () => {
+
+    const [number, setNumber] = useState(0);
+
+
+    const QuestionId = async (e) => {
+        try {
+            await setNumber(1);
+            console.log(number);
+            const data = await requestWithAccessToken('get', `/questions?answer_id=${number}`, {}, {}, "USER")
+            console.log(data);
+            localStorage.setItem("Answer", data.answer);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    const Ans = localStorage.getItem("Answer");
+
     return (
         <>
             <Header />
             <S.Wrapper>
                 <S.ChatBox>
-
-                    <S.UserWrp>
-                        {
-                            [...Array(2)].map((i, index) => {
-                                return (
-                                    <S.UserChatBox>ㅁㄴㅇㅁㄴㅇ{index, index + 1}asdasd</S.UserChatBox>
-                                )
-                            })
-                        }
-                    </S.UserWrp>
-                    <S.AdminWrp>
-                        {
-                            [...Array(2)].map((i, index) => {
-                                return (
-                                    <S.AdminChatBox>ㅁㄴㅇㅁㄴㅇ{index, index + 1}asdasd</S.AdminChatBox>
-                                )
-                            })
-                        }
-                    </S.AdminWrp>
-                    <S.UserWrp>
-                        {
-                            [...Array(3)].map((i, index) => {
-                                return (
-                                    <S.UserChatBox>Hello my name is adifiojdasjiodijYiu ui</S.UserChatBox>
-                                )
-                            })
-                        }
-                    </S.UserWrp>
-                    <S.AdminWrp>
-                        {
-                            [...Array(4)].map((i, index) => {
-                                return (
-                                    <S.AdminChatBox>Thank u very much u look so good</S.AdminChatBox>
-                                )
-                            })
-                        }
-                    </S.AdminWrp>
-                    <S.TypingWrp>
-                        <S.TypingInp></S.TypingInp>
-                        <img src={Send} alt="" />
-                    </S.TypingWrp>
+                    <S.QWrapper>
+                        <S.First>
+                            <S.Question onClick={QuestionId}> what is babybox? shalwijasd</S.Question>
+                            <S.Answer>{Ans}</S.Answer>
+                        </S.First>
+                        <S.Second>
+                            <S.Question>mtfknoob is good man woman u look so nigga</S.Question>
+                            <S.Answer></S.Answer>
+                        </S.Second>
+                        <S.Third>
+                            <S.Question>ssibal fuck qudtls Tlqkf wlqrkrhtlvek</S.Question>
+                            <S.Answer></S.Answer>
+                        </S.Third>
+                    </S.QWrapper>
                 </S.ChatBox>
             </S.Wrapper>
         </>
