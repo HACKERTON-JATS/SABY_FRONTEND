@@ -73,3 +73,15 @@ export const TypingInp = styled.input`
     outline: none;
     text-indent: 20px;
 `
+
+export const FirstQ = styled.button`
+
+`
+
+export const SecondQ = styled.button`
+
+`
+
+export const ThirdQ = styled.button`
+
+`
