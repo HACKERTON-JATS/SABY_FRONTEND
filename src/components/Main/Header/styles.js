@@ -7,6 +7,7 @@ export const Empty = styled.div`
 
 export const Wrapper = styled.header`
     width: 100%;
+    height: 15vh;
     display: flex;
     position: fixed;
     margin-bottom: 40px;
