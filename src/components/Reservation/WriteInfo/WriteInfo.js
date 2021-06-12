@@ -12,7 +12,7 @@ const WriteInfo = ({ data, setData }) => {
         console.log(data, typeof (data.time))
         console.log(data)
         console.log(window.localStorage.getItem('token'))
-    }, [data])
+    }, [])
 
 
     const nameChange = (e) => {
@@ -61,9 +61,7 @@ const WriteInfo = ({ data, setData }) => {
     const sendData = async (e) => {
         try {
             await requestWithAccessToken("post", "/reservation", {}, {
-                "reservation": {
-                    "time": time
-                },
+
                 "kidInformation": {
                     "birth_date": birth_date,
                     "kid_name": kid_name,
@@ -71,16 +69,16 @@ const WriteInfo = ({ data, setData }) => {
                     "fetus_name": fetus_name,
                     "request": request,
                     "caution": caution
-                },
+                }, "reservation": {
+                    "time": time
+                }
 
             }, "USER");
-            console.log(data);
         }
         catch (e) {
             console.log(e);
         }
     }
-
 
     return (
         <>

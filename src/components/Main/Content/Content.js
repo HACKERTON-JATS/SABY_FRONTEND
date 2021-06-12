@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Location from "../../../assets/Location.png";
 import * as S from "./styles";
-import { request } from "../../../axios/axios";
+import { request, requestWithAccessToken } from "../../../axios/axios";
 
 const Content = () => {
 
@@ -11,13 +11,10 @@ const Content = () => {
     useEffect(async (e) => {
 
         try {
-            await request("get", "/reservation_time", {
-                "Content-type": "application/json",
-                "Authorzation": `Bearer ${window.localStorage.getItem("token")}`
-            })
+            await requestWithAccessToken("get", "/reservation_time", {}, {}, "USER")
         }
-        catch {
-            alert("asd");
+        catch (e) {
+            console.log(e)
         }
     }, [])
 
@@ -32,6 +29,7 @@ const Content = () => {
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>
                     <S.ReservationInf>예약일정이 없습니다</S.ReservationInf>
+                    <p></p>
                 </S.Reservation>
             </S.Left>
             <S.Right>

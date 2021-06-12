@@ -10,9 +10,6 @@ const Reservation = () => {
 
 
     const [pos, setPos] = useState(0);
-    useEffect(() => {
-        console.log(data)
-    }, [pos])
     const [data, setData] = useState({
         time: "",
         birth_date: "",
