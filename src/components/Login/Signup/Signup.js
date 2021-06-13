@@ -125,25 +125,13 @@ const Signup = () => {
 
     const [code, setCode] = useState("");
 
-    const emailCk = async (e) => {
-        try {
-            await request("post", "/sms-certification/sends", {
-                "Content-type": "application/json"
-            }, {
-                "email": email
-            }, "USER")
-        }
-        catch {
-            console.log("err");
-        }
-    }
-
     const emailOk = async (e) => {
         try {
             setCode()
             await request("get", `sms-certification/confirms?code=${code}`, {
                 "Content-type": "application/json",
             }, {})
+            alert("이메일이 인증되었습니다!")
         }
         catch (e) {
             console.log(e);
@@ -207,7 +195,7 @@ const Signup = () => {
                             <S.UserEmail>이메일 인증 코드</S.UserEmail>
                             <S.Check>
                                 <S.EmailInp></S.EmailInp>
-                                <S.SendCode onClick={emailCk}>이메일 인증</S.SendCode>
+                                <S.SendCode onClick={emailOk}>이메일 인증</S.SendCode>
                             </S.Check>
                         </S.Email>
                         <S.Name>

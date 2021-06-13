@@ -18,7 +18,7 @@ export const ChatBox = styled.div`
 `
 
 export const First = styled.div`
-
+    margin-top: 40px;
 `
 
 export const Second = styled.div`
@@ -29,17 +29,50 @@ export const Third = styled.div`
 
 `
 
-export const Question = styled.p`
-    float: right;
+export const Question = styled.span`
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #dadada;
+    color: #2f2f2f;
+
+    &:hover{
+        background: #555;
+        color: #fff;
+    }
 `
 
-export const Answer = styled.p`
-    float: left;
+export const FAnswer = styled.p`
+    margin-top: 50px;
+    border: 1px solid #59fcff;
+    border-radius: 20px;
+    padding: 20px 0px;
+    margin-right: 20px;
+    padding-left: 20px;
+    display: ${({ visF }) => visF};
+`
+export const SAnswer = styled.p`
+    margin-top: 50px;
+    border: 1px solid #59fcff;
+    border-radius: 20px;
+    padding: 20px 0px;
+    margin-right: 20px;
+    padding-left: 20px;
+    display: ${({ visS }) => visS};
+`
+export const TAnswer = styled.p`
+    margin-top: 50px;
+    border: 1px solid #59fcff;
+    border-radius: 20px;
+    padding: 20px 0px;
+    margin-right: 20px;
+    padding-left: 20px;
+    display: ${({ visT }) => visT};
 `
 
 export const QWrapper = styled.div`
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 50px;
+    margin-left: 20px;
 `

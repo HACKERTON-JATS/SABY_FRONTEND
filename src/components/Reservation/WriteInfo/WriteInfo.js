@@ -90,10 +90,6 @@ const WriteInfo = ({ data, setData }) => {
                             <S.InpTitle>생년월일 <i style={{ color: "#ff4e4e" }}>*</i></S.InpTitle>
                             <S.InpN onChange={birthChange} type="datetime-local" />
                         </S.Left>
-                        <S.Right>
-                            <S.InpTitle>태어난 시각</S.InpTitle>
-                            <S.InpN type="time" />
-                        </S.Right>
                     </S.Birth>
 
                     <S.Name>
@@ -118,7 +114,9 @@ const WriteInfo = ({ data, setData }) => {
                         <S.InpTitle>아이 주의 사항</S.InpTitle>
                         <S.InpA onChange={cautionChange}></S.InpA>
                     </S.Advice>
-                    <button onClick={sendData}>asdasd</button>
+                    <S.ReservBtn>
+                        <button onClick={sendData}>예약하기</button>
+                    </S.ReservBtn>
                 </S.InpWrapper>
             </S.Wrapper>
         </>

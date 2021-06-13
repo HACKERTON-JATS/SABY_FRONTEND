@@ -78,3 +78,17 @@ export const InpA = styled.input`
     height: 35px;
     border-bottom: 1px solid #d0d0d0;
 `
+
+export const ReservBtn = styled.div`
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+    & button{
+        padding: 8px 100px;
+        border: none;
+        color: white;
+        background: #29fbff;
+        border-radius: 20px;
+    }
+`
