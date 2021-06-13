@@ -4,6 +4,7 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
+  background: #F5F5F5;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -11,3 +12,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "AppleSd";
+  src: url('./fonts/AppleSDGothicNeoM.ttf');
+}
+
+h1{
+  margin: 0;
+}
+a{
+  font-family: "AppleSd";
+}
+p{
+  margin: 0;
+  font-family: "AppleSd";
+}
+
+span{
+  font-family: "AppleSd";
+}
+
