@@ -31,6 +31,10 @@ export const NameInf = styled.span`
     border-bottom: 1px solid #707070;
     font-size: 2rem;
     padding: 0px 30px 20px 30px;
+    & a{
+        text-decoration: none;
+        color: #575757;
+    }
     
 `
 

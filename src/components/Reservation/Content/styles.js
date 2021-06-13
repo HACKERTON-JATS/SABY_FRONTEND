@@ -123,10 +123,16 @@ export const HourWrapper = styled.div`
     border-radius: 10px;
     justify-self: center;
     font-size: 1.5rem;
-    &:nth-of-type(4n){
-        border: 1px solid #FF6060;
-        color: #707070;
+
+    &:hover{
+        background: #7EDBDD;
+        color: #fff;
     }
+    &:active{
+        background: #7EDBDD;
+        color: #fff;
+    }
+    
 `
 
 export const WriteBabyInfo = styled.div`

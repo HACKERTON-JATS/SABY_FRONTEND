@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Location from "../../../assets/Location.png";
 import * as S from "./styles";
 import { request, requestWithAccessToken } from "../../../axios/axios";
+import { Link } from "react-router-dom";
 
 const Content = () => {
 
@@ -30,7 +31,7 @@ const Content = () => {
             <S.Left>
                 <S.Name>
                     <S.Alias>닉네임</S.Alias>
-                    <S.NameInf>{name == undefined ? "로그인 해주세요" : name}</S.NameInf>
+                    <S.NameInf>{name == undefined ? <Link exact to="/signin">로그인해주세요</Link> : name}</S.NameInf>
                 </S.Name>
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>

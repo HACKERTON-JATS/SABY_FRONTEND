@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { request, requestWithAccessToken } from "../../../axios/axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import * as S from "./styles";
 import Header from "../../Main/Header/Header";
 
 const WriteInfo = ({ data, setData }) => {
+
+    const history = useHistory();
 
     const { time, birth_date, kid_name, vaccination, fetus_name, request, caution } = data
 
@@ -74,6 +76,7 @@ const WriteInfo = ({ data, setData }) => {
                 }
 
             }, "USER");
+            history.push('/Main');
         }
         catch (e) {
             console.log(e);
@@ -115,7 +118,7 @@ const WriteInfo = ({ data, setData }) => {
                         <S.InpA onChange={cautionChange}></S.InpA>
                     </S.Advice>
                     <S.ReservBtn>
-                        <button onClick={sendData}>예약하기</button>
+                        <button style={{ cursor: "pointer" }} onClick={sendData}>예약하기</button>
                     </S.ReservBtn>
                 </S.InpWrapper>
             </S.Wrapper>

@@ -9,6 +9,9 @@ const Time = ({ setPos, data, setData }) => {
         console.log(typeof (data.time))
     }, [])
 
+    const [back, setBack] = useState("none");
+    const [color, setColor] = useState("#000");
+
     const posChange = () => {
         setPos(2);
     }
@@ -21,6 +24,7 @@ const Time = ({ setPos, data, setData }) => {
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i])
             }
+
         }
         catch (e) {
             console.log(e);
@@ -29,6 +33,7 @@ const Time = ({ setPos, data, setData }) => {
     }, [])
     const hourCk = (index) => {
         const time = data.time;
+        localStorage.setItem("Retime", time)
         time.setHours(index)
         time.setMinutes(0);
         time.setSeconds(0);
@@ -44,12 +49,13 @@ const Time = ({ setPos, data, setData }) => {
         <>
             <S.TimeWrapper>
                 <S.Date>6/1</S.Date>
+                <p style={{ marginLeft: "20px" }} > {localStorage.getItem("Retime")}</p>
                 <S.ExactTimeWrp>
                     <div>
                         {
                             [...Array(24)].map((i, index) => {
                                 return (
-                                    < S.HourWrapper onClick={(e) => { hourCk(index); }}> {index}시 ~{index + 1}시</S.HourWrapper>
+                                    <S.HourWrapper onClick={(e) => { hourCk(index); }}> {index}시 ~{index + 1}시</S.HourWrapper>
                                 )
                             })
                         }
