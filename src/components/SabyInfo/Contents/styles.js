@@ -41,4 +41,8 @@ export const ContentBox = styled.div`
         font-family: AppleSd;
     }
 
+    & img {
+        width: 400px;
+        margin-bottom: 10px;
+    }
 `
