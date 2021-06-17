@@ -125,7 +125,7 @@ export const GoSignUp = styled.p`
 `
 
 export const SignInBtn = styled.div`
-    margin-top: 30px;
+        margin-top: 30px;
         text-decoration : none;
         border-radius: 5px;
         border: none;

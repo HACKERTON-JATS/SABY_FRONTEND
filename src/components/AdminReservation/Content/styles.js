@@ -32,13 +32,16 @@ export const UserInfo = styled.span`
 
 export const BabyInfo = styled.div`
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 5px;
 `
 
 export const Text = styled.span`
     font-size: 1.2rem;
 `
 
-export const Img = styled.p`
-    
+export const Image = styled.img`
+    width: 20px;
+    height: 20px;
 `
