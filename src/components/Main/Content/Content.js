@@ -6,19 +6,36 @@ import { Link } from "react-router-dom";
 
 const Content = () => {
 
+    const [time, setTime] = useState([]);
+    const listArr = [];
+
+    const list = JSON.stringify(time).split(",");
+
 
     const name = localStorage.getItem("name");
-    const timed = localStorage.getItem("timed");
+    useEffect(() => {
+        console.log(time)
+    }, [time])
 
+    useEffect(() => {
+        console.log(list)
+        for (let i = 0; i < time.length; i++) {
+            if (list[i] == list[0]) {
+                listArr.push(list[i].substr(10, 19))
+            }
+            else {
+                listArr.push(list[i].substr(9, 19));
+            }
+        }
+        console.log(listArr)
+    })
     useEffect(async (e) => {
 
         try {
             const data = await requestWithAccessToken("get", "/reservation_time", {}, {}, "USER");
             console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                console.log(data[i]);
-            }
-            localStorage.setItem("timed", JSON.stringify(data))
+            setTime(data);
+
         }
         catch (e) {
             console.log(e)
@@ -35,7 +52,8 @@ const Content = () => {
                 </S.Name>
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>
-                    <S.ReservationInf>{timed == undefined ? "예약일정이 없습니다" : timed.substr(10, 22)}</S.ReservationInf>
+                    {/* <S.ReservationInf ></S.ReservationInf> */}
+                    <S.ReservationInf>{listArr == null ? "예약일정이 없습니다" : listArr}</S.ReservationInf>
                 </S.Reservation>
             </S.Left>
             <S.Right>

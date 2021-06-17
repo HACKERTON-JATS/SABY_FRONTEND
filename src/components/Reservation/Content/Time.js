@@ -7,10 +7,10 @@ import Triangle from "../../../assets/triangle.png";
 const Time = ({ setPos, data, setData }) => {
     useEffect(() => {
         console.log(typeof (data.time))
+        console.log(data)
     }, [])
 
-    const [back, setBack] = useState("none");
-    const [color, setColor] = useState("#000");
+    const timeArr = []
 
     const posChange = () => {
         setPos(2);
@@ -19,21 +19,30 @@ const Time = ({ setPos, data, setData }) => {
     useEffect(async (e) => {
         try {
             const data = await requestWithAccessToken("get", "/isReservation", {}, {}, "USER");
-            localStorage.setItem("time", data.time);
-            console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                console.log(data[i])
-            }
 
+            const reserved = JSON.stringify(data).split(",");
+            for (let i = 0; i < data.length; i++) {
+                if (reserved[i] == reserved[0]) {
+                    console.log(reserved[i].substr(21, 2));
+                    timeArr.push(reserved[i].substr(21, 2));
+                }
+                else {
+                    console.log(reserved[i].substr(20, 2));
+                    timeArr.push(reserved[i].substr(20, 2));
+                }
+            }
+            console.log(timeArr);
         }
         catch (e) {
             console.log(e);
         }
 
     }, [])
+    const hourOverlap = (timeArr) => {
+
+    }
     const hourCk = (index) => {
         const time = data.time;
-        localStorage.setItem("Retime", time)
         time.setHours(index)
         time.setMinutes(0);
         time.setSeconds(0);
@@ -48,8 +57,7 @@ const Time = ({ setPos, data, setData }) => {
     return (
         <>
             <S.TimeWrapper>
-                <S.Date>6/1</S.Date>
-                <p style={{ marginLeft: "20px" }} > {localStorage.getItem("Retime")}</p>
+                <S.Date></S.Date>
                 <S.ExactTimeWrp>
                     <div>
                         {
