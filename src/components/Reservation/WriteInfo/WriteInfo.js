@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { request, requestWithAccessToken } from "../../../axios/axios";
+import { NavLink, useHistory } from "react-router-dom";
 import * as S from "./styles";
 import Header from "../../Main/Header/Header";
 
 const WriteInfo = ({ data, setData }) => {
 
+    const history = useHistory();
+
+    const { time, birth_date, kid_name, vaccination, fetus_name, request, caution } = data
+
     useEffect(() => {
         console.log(data, typeof (data.time))
-
+        console.log(data)
+        console.log(window.localStorage.getItem('token'))
     }, [])
 
 
@@ -35,7 +41,7 @@ const WriteInfo = ({ data, setData }) => {
     const vaccinationChange = (e) => {
         setData({
             ...data,
-            Vaccination: e.target.value
+            vaccination: e.target.value
         })
     }
 
@@ -54,7 +60,29 @@ const WriteInfo = ({ data, setData }) => {
     }
 
 
+    const sendData = async (e) => {
+        try {
+            await requestWithAccessToken("post", "/reservation", {}, {
 
+                "kidInformation": {
+                    "birth_date": birth_date,
+                    "kid_name": kid_name,
+                    "vaccination": vaccination,
+                    "fetus_name": fetus_name,
+                    "request": request,
+                    "caution": caution
+                }, "reservation": {
+                    "time": time
+                }
+
+            }, "USER");
+            console.log(data)
+            history.push('/Main');
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
 
     return (
         <>
@@ -64,12 +92,8 @@ const WriteInfo = ({ data, setData }) => {
                     <S.Birth>
                         <S.Left>
                             <S.InpTitle>생년월일 <i style={{ color: "#ff4e4e" }}>*</i></S.InpTitle>
-                            <S.InpN onChange={birthChange} type="date" />
+                            <S.InpN onChange={birthChange} type="datetime-local" />
                         </S.Left>
-                        <S.Right>
-                            <S.InpTitle>태어난 시각</S.InpTitle>
-                            <S.InpN onChange={birthChange} type="time" />
-                        </S.Right>
                     </S.Birth>
 
                     <S.Name>
@@ -94,7 +118,9 @@ const WriteInfo = ({ data, setData }) => {
                         <S.InpTitle>아이 주의 사항</S.InpTitle>
                         <S.InpA onChange={cautionChange}></S.InpA>
                     </S.Advice>
-                    <button onClick={() => { console.log(data) }}>asdasd</button>
+                    <S.ReservBtn>
+                        <button style={{ cursor: "pointer" }} onClick={sendData}>예약하기</button>
+                    </S.ReservBtn>
                 </S.InpWrapper>
             </S.Wrapper>
         </>

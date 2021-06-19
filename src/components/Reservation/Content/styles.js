@@ -115,17 +115,19 @@ export const HourWrapper = styled.div`
     width: 85%;
     height: 45px;
     margin: 15px;
-    border: 1px solid #7EDBDD;
-    cursor: pointer;
+    border: 1px solid ${(props) => props.isReservation ? 'red' : '#7EDBDD'};
+    cursor: ${(props) => !props.isReservation && 'pointer'};
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     justify-self: center;
     font-size: 1.5rem;
-    &:nth-of-type(4n){
-        border: 1px solid #FF6060;
-        color: #707070;
+
+    &:hover{
+        background: ${(props) => props.isReservation ? '' : '#7EDBDD'};
+        color: ${(props) => props.isReservation ? 'red' : '#fff'};
+        
     }
 `
 

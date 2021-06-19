@@ -11,7 +11,7 @@ const Enter = () => {
             <S.Slogan>베이비박스 지원 서비스</S.Slogan>
             <S.ChangePage>
                 <S.InformationWrp>
-                    <NavLink to="/">
+                    <NavLink to="/Information">
                         <S.InfShadow >
                             <S.SeeInf>정보 보러가기</S.SeeInf>
                             <S.HiddenInf>베이비 박스에 대해 자세한 정보를 보러가세요.</S.HiddenInf>

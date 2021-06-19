@@ -17,59 +17,62 @@ export const ChatBox = styled.div`
 
 `
 
-export const UserWrp = styled.div`
-    display: flex;
-    align-items: flex-end;
-    margin-right: 30px;
-    margin-top: 20px;
-    flex-direction: column;
+export const First = styled.div`
+    margin-top: 40px;
 `
 
-export const UserChatBox = styled.p`
-    margin-top: 10px;
-    padding: 5px 10px 5px 10px;
-    background: linear-gradient(#99A0F8,#74B8F9);
-    color: #fff;
-    border-radius: 30px 5px 30px 30px;
+export const Second = styled.div`
+
 `
 
-export const AdminWrp = styled.div`
-    margin-left: 30px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+export const Third = styled.div`
+
 `
 
-export const AdminChatBox = styled.p`
-    margin-top: 10px;
-    padding: 5px 10px 5px 10px;
-    background: #F5F5F5;
-    border-radius: 5px 30px 30px 30px;
-`
+export const Question = styled.span`
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #dadada;
+    color: #2f2f2f;
 
-export const TypingWrp = styled.div`
-    margin-top: 10px;
-    border-top: 1px solid #707070;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10%;
-
-    & img{
-        width: 30px;
-        margin-left: 20px;
+    &:hover{
+        background: #555;
+        color: #fff;
     }
 `
 
-
-export const TypingInp = styled.input`
-    width: 85%;
-    height: 35px;
+export const FAnswer = styled.p`
+    margin-top: 50px;
+    border: 1px solid #59fcff;
     border-radius: 20px;
-    border: none;
-    background: #EBEBEB;
-    outline: none;
-    text-indent: 20px;
+    padding: 20px 0px;
+    margin-right: 20px;
+    padding-left: 20px;
+    display: ${({ visF }) => visF};
+`
+export const SAnswer = styled.p`
+    margin-top: 50px;
+    border: 1px solid #59fcff;
+    border-radius: 20px;
+    padding: 20px 0px;
+    margin-right: 20px;
+    padding-left: 20px;
+    display: ${({ visS }) => visS};
+`
+export const TAnswer = styled.p`
+    margin-top: 50px;
+    border: 1px solid #59fcff;
+    border-radius: 20px;
+    padding: 20px 0px;
+    margin-right: 20px;
+    padding-left: 20px;
+    display: ${({ visT }) => visT};
+`
+
+export const QWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-left: 20px;
 `

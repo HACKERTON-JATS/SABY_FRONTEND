@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from './styles';
+import Support1 from "../../../assets/Support1.png"
 
 const Support = () => {
     return (
@@ -20,7 +21,9 @@ const Support = () => {
                     <li>분유, 기저귀, 물티슈 등과 개별적인 요구에 따라 로션, 약품, 책 등이 포함된다.</li>
                 </ul>
                 <h1>4. 베이비박스 업무 흐름도</h1>
-                
+                <ul>
+                    <img style={{width: '700px'}}src={Support1} alt=""/>
+                </ul>
             </S.ContentBox>
         </S.Wrapper>
     )

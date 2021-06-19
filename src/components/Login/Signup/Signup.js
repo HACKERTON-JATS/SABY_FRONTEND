@@ -7,6 +7,12 @@ const Signup = () => {
 
     const history = useHistory();
 
+    const [codeData, setCodeData] = useState({
+        code: ""
+    });
+
+    const { code } = codeData;
+
     const [data, setData] = useState({
         name: "",
         email: "",
@@ -24,6 +30,13 @@ const Signup = () => {
 
 
     const { name, email, password, id } = data;
+
+    const codeChange = (e) => {
+        setCodeData({
+            ...code,
+            code: e.target.value
+        })
+    }
 
     const nameChange = (e) => {
         setData({
@@ -73,15 +86,30 @@ const Signup = () => {
             await request("get", `/members/email?email=${email}`, {
                 "Content-Type": "application/json"
             }, {}, "USER")
-            alert("사용가능한 이메일 입니다!");
+            alert("이메일 인증코드를 보냈습니다!");
             setCheck({
                 ...check,
                 email_ck: true
             });
+            emailSends();
         }
         catch (e) {
             console.log(e);
             alert("사용중인 이메일 입니다!");
+        }
+    }
+
+    const emailSends = async (e) => {
+        try {
+            await request("post", "/sms-certification/sends", {
+                "Content-type": "application/json"
+            }, {
+                "email": email
+            }, "USER");
+            console.log(e);
+        }
+        catch (e) {
+            console.log(e)
         }
     }
 
@@ -123,16 +151,15 @@ const Signup = () => {
         }
     }
 
-    const emailCk = async (e) => {
+    const emailOk = async (e) => {
         try {
-            await request("post", "/sms-certification/sends", {
-                "Content-type": "application/json"
-            }, {
-                "email": email
-            })
+            await request("get", `/sms-certification/confirms?code=${code}`, {
+                "Content-type": "application/json",
+            }, {}, "USER")
+            alert("이메일이 인증되었습니다!")
         }
-        catch {
-            console.log("err");
+        catch (e) {
+            console.log(e);
         }
     }
 
@@ -153,7 +180,7 @@ const Signup = () => {
                 "email": email,
                 "password": password,
                 "nickname": name
-            }, {}, "USER")
+            }, "USER")
             alert("회원가입에 성공하였습니다!");
             history.push("/signin");
         }
@@ -192,8 +219,8 @@ const Signup = () => {
                         <S.Email>
                             <S.UserEmail>이메일 인증 코드</S.UserEmail>
                             <S.Check>
-                                <S.EmailInp></S.EmailInp>
-                                <S.SendCode onClick={emailCk}>이메일 인증</S.SendCode>
+                                <S.EmailInp onChange={codeChange}></S.EmailInp>
+                                <S.SendCode onClick={emailOk}>이메일 인증</S.SendCode>
                             </S.Check>
                         </S.Email>
                         <S.Name>
