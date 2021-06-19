@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const USER_DOMAIN = 'http://211.38.86.92:8040';
 const ADMIN_DOMAIN = 'http://211.38.86.92:8006';

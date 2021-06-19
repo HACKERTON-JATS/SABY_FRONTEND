@@ -6,8 +6,8 @@ import Content from "./Content/Content";
 const AdminReservation = () => {
     return (
         <S.Wrapper>
-            <Header/>
-            <Content/>
+            <Header />
+            <Content />
         </S.Wrapper>
     );
 };

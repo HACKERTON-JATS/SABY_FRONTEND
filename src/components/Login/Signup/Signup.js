@@ -67,7 +67,7 @@ const Signup = () => {
     }
 
     const ckName = () => {
-        if (name == '') {
+        if (name === '') {
             alert("type name!");
             return false;
         }

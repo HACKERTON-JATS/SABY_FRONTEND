@@ -32,7 +32,9 @@ export const UserInfo = styled.span`
 
 export const BabyInfo = styled.div`
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 5px;
 `
 
 export const Text = styled.span`
@@ -40,6 +42,6 @@ export const Text = styled.span`
 `
 
 export const Image = styled.img`
-    margin-left: 10px;
-    width: 24px;
+    width: 20px;
+    height: 20px;
 `
