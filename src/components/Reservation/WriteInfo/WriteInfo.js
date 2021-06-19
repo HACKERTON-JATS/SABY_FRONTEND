@@ -76,6 +76,7 @@ const WriteInfo = ({ data, setData }) => {
                 }
 
             }, "USER");
+            console.log(data)
             history.push('/Main');
         }
         catch (e) {

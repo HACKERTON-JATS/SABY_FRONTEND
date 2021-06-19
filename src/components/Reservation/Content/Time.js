@@ -3,14 +3,16 @@ import * as S from "./styles";
 import WriteIfno from "../WriteInfo/WriteInfo";
 import { request, requestWithAccessToken } from "../../../axios/axios";
 import Triangle from "../../../assets/triangle.png";
+import HourWrapper from "./HourWrapper";
+
 
 const Time = ({ setPos, data, setData }) => {
     useEffect(() => {
         console.log(typeof (data.time))
-        console.log(data)
-    }, [])
+        console.log(data.time)
+    }, []);
 
-    const timeArr = []
+    const [timeArr, setTimeArr] = useState([]);
 
     const posChange = () => {
         setPos(2);
@@ -19,28 +21,25 @@ const Time = ({ setPos, data, setData }) => {
     useEffect(async (e) => {
         try {
             const data = await requestWithAccessToken("get", "/isReservation", {}, {}, "USER");
-
-            const reserved = JSON.stringify(data).split(",");
-            for (let i = 0; i < data.length; i++) {
-                if (reserved[i] == reserved[0]) {
-                    console.log(reserved[i].substr(21, 2));
-                    timeArr.push(reserved[i].substr(21, 2));
-                }
-                else {
-                    console.log(reserved[i].substr(20, 2));
-                    timeArr.push(reserved[i].substr(20, 2));
-                }
-            }
-            console.log(timeArr);
+            console.log('date : ', data);
+            data.forEach((i) => {
+                const date = new Date(i.time);
+                setTimeArr([...timeArr, date.getHours()]);
+            })
+            // for (let i = 0; i < data.length; i++) {
+            //     const date = new Date(reserved[i]);
+            //     setTimeArr([...data, date.getHours()])
+            // }
+            // console.log(timeArr);
         }
         catch (e) {
             console.log(e);
         }
 
-    }, [])
-    const hourOverlap = (timeArr) => {
-
-    }
+    }, []);
+    useEffect(() => {
+        console.log('log : ', timeArr);
+    }, [timeArr])
     const hourCk = (index) => {
         const time = data.time;
         time.setHours(index)
@@ -50,20 +49,24 @@ const Time = ({ setPos, data, setData }) => {
             ...data,
             time: time
         })
+        alert(time + '선택되었습니다');
         console.log(data);
     }
+
+
 
 
     return (
         <>
             <S.TimeWrapper>
-                <S.Date></S.Date>
+                <S.Date>2/2</S.Date>
                 <S.ExactTimeWrp>
                     <div>
                         {
                             [...Array(24)].map((i, index) => {
+                                console.log(timeArr.includes(index))
                                 return (
-                                    <S.HourWrapper onClick={(e) => { hourCk(index); }}> {index}시 ~{index + 1}시</S.HourWrapper>
+                                    <HourWrapper index={index} isReservation={timeArr.includes(index)} hourCk={hourCk} />
                                 )
                             })
                         }

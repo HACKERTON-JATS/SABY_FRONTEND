@@ -115,8 +115,8 @@ export const HourWrapper = styled.div`
     width: 85%;
     height: 45px;
     margin: 15px;
-    border: 1px solid #7EDBDD;
-    cursor: pointer;
+    border: 1px solid ${(props) => props.isReservation ? 'red' : '#7EDBDD'};
+    cursor: ${(props) => !props.isReservation && 'pointer'};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,14 +125,10 @@ export const HourWrapper = styled.div`
     font-size: 1.5rem;
 
     &:hover{
-        background: #7EDBDD;
-        color: #fff;
+        background: ${(props) => props.isReservation ? '' : '#7EDBDD'};
+        color: ${(props) => props.isReservation ? 'red' : '#fff'};
+        
     }
-    &:active{
-        background: #7EDBDD;
-        color: #fff;
-    }
-    
 `
 
 export const WriteBabyInfo = styled.div`

@@ -58,3 +58,13 @@ export const Map = styled.img`
     width: 500px;
     margin-top: 20px;
 `
+
+export const Reserved = styled.div`
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #59fcff;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: lighter;
+    border-radius: 10px;
+    color: #6d6d6d;
+`
