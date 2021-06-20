@@ -12,7 +12,10 @@ const Content = () => {
 
     const name = localStorage.getItem("name");
     useEffect(() => {
-
+        if (name != null && name.length > 2) {
+            name.substr(0, 2);
+            console.log(name.substr(0, 2));
+        }
     }, [time])
 
     useEffect(async (e) => {
@@ -34,7 +37,7 @@ const Content = () => {
             <S.Left>
                 <S.Name>
                     <S.Alias>닉네임</S.Alias>
-                    <S.NameInf>{name == undefined ? <Link exact to="/signin">로그인해주세요</Link> : name}</S.NameInf>
+                    <S.NameInf>{name == undefined ? <Link exact to="/signin">로그인해주세요</Link> : name.substr(0, 2) + " *"}</S.NameInf>
                 </S.Name>
                 <S.Reservation>
                     <S.Alias>예약 일정</S.Alias>

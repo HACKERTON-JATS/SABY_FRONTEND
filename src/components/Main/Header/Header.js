@@ -30,7 +30,7 @@ const Header = () => {
                         <Link exact to="/Information/babybox">정보보기</Link>
                         <S.Login>{name == undefined ?
                             <Link exact to="/Signin" >로그인</Link> :
-                            <Link exact to="/Main">{name}</Link>
+                            <Link exact to="/Main">{name.substr(0, 2) + " *"}</Link>
                         }
                         </S.Login>
                     </S.NavBar>
