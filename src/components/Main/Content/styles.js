@@ -68,3 +68,20 @@ export const Reserved = styled.div`
     border-radius: 10px;
     color: #6d6d6d;
 `
+
+export const Logout = styled.button`
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background: #59fcff;
+    color: white;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+
+    & a{
+        text-decoration: none;
+        color: white;
+    }
+`
