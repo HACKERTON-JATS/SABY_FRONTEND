@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const USER_DOMAIN = 'http://211.38.86.92:8040';
 const ADMIN_DOMAIN = 'http://211.38.86.92:8006';
@@ -34,7 +34,7 @@ export const request = (method, url, headers, data, target) => {
 };
 
 export const requestWithAccessToken = (method, url, headers, data, target) => {
-    const ACCESS_TOKEN = localStorage.getItem(TARGET_TOKEN_OBJ[target]);
+    const ACCESS_TOKEN = 'Bearer ' + localStorage.getItem(TARGET_TOKEN_OBJ[target]);
     const ACCESS_TOKEN_NAME = TARGET_AUTHORIZATION_OBJ[target];
     return axios({
         method,

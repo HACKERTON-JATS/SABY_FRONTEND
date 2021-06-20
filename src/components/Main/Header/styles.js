@@ -7,6 +7,7 @@ export const Empty = styled.div`
 
 export const Wrapper = styled.header`
     width: 100%;
+    height: 15vh;
     display: flex;
     position: fixed;
     margin-bottom: 40px;
@@ -47,17 +48,22 @@ export const NavBar = styled.div`
     & a:active{
         color: #222222;
     }
+`
+export const Login = styled.div`
+    & a{
+        text-align: center;
+        vertical-align: center;
+        padding: 11px 30px 11px 30px;
+        font-weight: bold;
+        border-radius: 50px;
+        color: white;
+        background: #59fcff;
+        cursor: pointer;
+        margin-top: -11px;
+       text-decoration: none;
+    }
 
-    & a:nth-of-type(5){
-    text-align: center;
-    vertical-align: center;
-    padding: 11px 30px 11px 30px;
-    font-weight: bold;
-    border-radius: 50px;
-    color: white;
-    background: #59fcff;
-    cursor: pointer;
-    margin-top: -11px;
-    text-decoration: none;
+    & a:hover{
+        color: #fff;
     }
 `

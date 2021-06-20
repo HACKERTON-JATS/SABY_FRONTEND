@@ -1,16 +1,15 @@
-import React from "react";
+import React from 'react';
 import * as S from "./styles";
 import Header from "./Header/Header";
 import Content from "./Content/Content";
 
-
-const Main = () => {
+const AdminReservation = () => {
     return (
         <S.Wrapper>
             <Header />
             <Content />
         </S.Wrapper>
-    )
-}
+    );
+};
 
-export default Main;
+export default AdminReservation;

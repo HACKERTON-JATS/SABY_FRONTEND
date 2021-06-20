@@ -7,7 +7,11 @@ const Signup = () => {
 
     const history = useHistory();
 
+    const [codeData, setCodeData] = useState({
+        code: ""
+    });
 
+    const { code } = codeData;
 
     const [data, setData] = useState({
         name: "",
@@ -26,6 +30,13 @@ const Signup = () => {
 
 
     const { name, email, password, id } = data;
+
+    const codeChange = (e) => {
+        setCodeData({
+            ...code,
+            code: e.target.value
+        })
+    }
 
     const nameChange = (e) => {
         setData({
@@ -56,7 +67,7 @@ const Signup = () => {
     }
 
     const ckName = () => {
-        if (name == '') {
+        if (name === '') {
             alert("type name!");
             return false;
         }
@@ -74,12 +85,13 @@ const Signup = () => {
         try {
             await request("get", `/members/email?email=${email}`, {
                 "Content-Type": "application/json"
-            })
-            alert("사용가능한 이메일 입니다!");
+            }, {}, "USER")
+            alert("이메일 인증코드를 보냈습니다!");
             setCheck({
                 ...check,
                 email_ck: true
             });
+            emailSends();
         }
         catch (e) {
             console.log(e);
@@ -87,13 +99,29 @@ const Signup = () => {
         }
     }
 
+    const emailSends = async (e) => {
+        try {
+            await request("post", "/sms-certification/sends", {
+                "Content-type": "application/json"
+            }, {
+                "email": email
+            }, "USER");
+            console.log(e);
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
     const nameOverlap = async () => {
         console.log(name)
+
+        ckName();
+
         try {
             await request("get", `/members/nickname?nickname=${name}`, {
                 "Content-Type": "application/json",
-
-            })
+            }, {}, "USER")
             alert("사용가능한 닉네임입니다!");
             setCheck({
                 ...check,
@@ -111,7 +139,7 @@ const Signup = () => {
         try {
             await request("get", `/members/id?user_id=${id}`, {
                 "Content-Type": "application/json"
-            })
+            }, {}, "USER")
             alert("사용가능한 아이디 입니다!");
             setCheck({
                 ...check,
@@ -120,6 +148,18 @@ const Signup = () => {
         } catch (e) {
             console.log(e);
             alert("사용중인 아이디 입니다")
+        }
+    }
+
+    const emailOk = async (e) => {
+        try {
+            await request("get", `/sms-certification/confirms?code=${code}`, {
+                "Content-type": "application/json",
+            }, {}, "USER")
+            alert("이메일이 인증되었습니다!")
+        }
+        catch (e) {
+            console.log(e);
         }
     }
 
@@ -140,7 +180,7 @@ const Signup = () => {
                 "email": email,
                 "password": password,
                 "nickname": name
-            })
+            }, "USER")
             alert("회원가입에 성공하였습니다!");
             history.push("/signin");
         }
@@ -179,8 +219,8 @@ const Signup = () => {
                         <S.Email>
                             <S.UserEmail>이메일 인증 코드</S.UserEmail>
                             <S.Check>
-                                <S.EmailInp></S.EmailInp>
-                                <S.SendCode>이메일 인증</S.SendCode>
+                                <S.EmailInp onChange={codeChange}></S.EmailInp>
+                                <S.SendCode onClick={emailOk}>이메일 인증</S.SendCode>
                             </S.Check>
                         </S.Email>
                         <S.Name>

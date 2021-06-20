@@ -31,6 +31,10 @@ export const NameInf = styled.span`
     border-bottom: 1px solid #707070;
     font-size: 2rem;
     padding: 0px 30px 20px 30px;
+    & a{
+        text-decoration: none;
+        color: #575757;
+    }
     
 `
 
@@ -53,4 +57,31 @@ export const ComingWay = styled.p`
 export const Map = styled.img`
     width: 500px;
     margin-top: 20px;
+`
+
+export const Reserved = styled.div`
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #59fcff;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: lighter;
+    border-radius: 10px;
+    color: #6d6d6d;
+`
+
+export const Logout = styled.button`
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background: #59fcff;
+    color: white;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+
+    & a{
+        text-decoration: none;
+        color: white;
+    }
 `
