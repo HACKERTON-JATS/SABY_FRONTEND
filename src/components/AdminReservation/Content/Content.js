@@ -11,11 +11,11 @@ const Content = () => {
 
     const getUserReservations = async (page) => {
         setPageNum(pageNum + 1);
-        const res = await requestWithAccessToken('GET', `/admin/reservation?page=${page + 1}`, {}, {}, 'ADMIN')
+        const res = await requestWithAccessToken('get', `/admin/reservation?page=${page + 1}`, {}, {}, 'ADMIN')
         setData([...data, ...res.reservationInfos]);
         setMaxPage(res.totalPages);
         setLoading(false);
-        console.log((res.reservationInfos[0].fetusName))
+        console.log(res)
     };
 
     function infiniteScroll() {
@@ -64,7 +64,7 @@ const Content = () => {
                             <S.Date>{mmddFormater(i.time)}</S.Date>
                             <S.TextBlock>
                                 <S.UserInfo>
-                                    {JSON.stringify(i.fetusName).substr(0, 2) + " *"} - {`${getHours(i.time)}시 ~ ${getHours(i.time) + 1}시`}
+                                    {JSON.stringify(i.fetusName).substr(1, 2) + " *"} - {`${getHours(i.time)}시 ~ ${getHours(i.time) + 1}시`}
                                 </S.UserInfo>
                                 <S.BabyInfo>
                                     <S.Text>아이정보</S.Text>
